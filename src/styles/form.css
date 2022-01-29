@@ -1,0 +1,26 @@
+
+.row {
+    margin-top: 10% !important;
+    border : "solid 1px grey";
+    box-shadow: 2px 1px 11px 4px rgba(170, 172, 175, 0.51);
+}
+
+.input-success {
+    box-shadow: none !important;
+    background-image: url('../checkmark.png');
+    background-size: contain;
+    background-size: 1rem;
+    background-repeat: no-repeat;
+    background-position-x: 98%;
+    background-position-y: center;
+}
+
+.input-fail {
+    box-shadow: none !important;
+    background-image: url('../incorrect.jpeg');
+    background-size: contain;
+    background-size: 1.8rem;
+    background-repeat: no-repeat;
+    background-position-x: 99%;
+    background-position-y: center;
+}
