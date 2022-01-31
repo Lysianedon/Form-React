@@ -24,3 +24,10 @@
     background-position-x: 99%;
     background-position-y: center;
 }
+
+.submitted {
+    background-color: rgb(238, 234, 234);
+    text-align: center;
+    align-items: center;
+    height: 51vh;
+}
