@@ -2,6 +2,7 @@ import React from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import form from './styles/form.css'
+import ConfirmationPage from './ConfirmationPage/ConfirmationPage'
 
 class App extends React.Component {
 
@@ -14,25 +15,13 @@ class App extends React.Component {
       emailFormat : /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
       emailInput : "",
       password : "",
-      styleBox : {
-        border : "solid 1px grey",
-        shadowColor: "#000",
-        shadowOffset: {
-          width: 0,
-          height: 2,
-        },
-        shadowOpacity: "0.25",
-        shadowRadius: "3.84",
-
-        elevation: "5",
-      }
-    }
-    
+      isSubmitted : false,
+    } 
     //Bind functions 
     // this.checkEmail = this.checkEmail.bind(this);
+    this.submitForm = this.submitForm.bind(this);
     
   }
-
 
   renderEmail () {
 
@@ -93,27 +82,44 @@ class App extends React.Component {
     )
   }
 
+  submitForm(e) {
+    e.preventDefault();
+    this.setState({isSubmitted : true});
+    return console.log("test issubmitted :", this.state.isSubmitted);
+  }
+
   render() {
  
     return (
 
       <div className="div-wrapper">
+
+          {
+            this.state.isSubmitted === false ? 
+            (<>
         <div className="row col-6 mx-auto mt-5 p-4">
-          <h1 style={{textAlign : "center"}}>Login</h1>
-          <form>
-
-            {this.renderEmail()}
-
-            {this.renderPassword()}
-
-            <div className="form-check">
-              <input className="form-check-input" type="checkbox" value="" id="checkbox"></input>
-              <label className="form-check-label mb-3" htmlFor="checkbox">Remember me</label>
-            </div>
-
-            <button type="submit" className="btn btn-primary">Submit</button>
-          </form>
+               <h1 style={{textAlign : "center"}}>Login</h1>
+            <form>
+  
+              {this.renderEmail()}
+  
+              {this.renderPassword()}
+  
+              <div className="form-check">
+                <input className="form-check-input" type="checkbox" value="" id="checkbox"></input>
+                <label className="form-check-label mb-3" htmlFor="checkbox">Remember me</label>
+              </div>
+  
+              <button type="submit" className="btn btn-primary" onClick={this.submitForm}>Submit</button>
+  
+            </form>
         </div>
+            </>)
+            :
+             (<ConfirmationPage/> )
+          }
+         
+
       </div>
     )
   }
