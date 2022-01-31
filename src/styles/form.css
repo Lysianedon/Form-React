@@ -25,6 +25,14 @@
     background-position-y: center;
 }
 
+.input-fail:focus {
+    box-shadow: 0 0 3pt 0.3pt rgb(238, 139, 139) !important;
+}
+
+.input-success:focus {
+    box-shadow: 0 0 3pt 0.3pt rgb(126, 194, 157) !important;
+}
+
 .submitted {
     background-color: rgb(238, 234, 234);
     text-align: center;
