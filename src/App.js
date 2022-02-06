@@ -94,32 +94,31 @@ class App extends React.Component {
 
       <div className="div-wrapper">
 
+          {/* Checking if my form is submitted : if so, the confirmation page gets displayed*/}
           {
             this.state.isSubmitted === false ? 
             (<>
-        <div className="row col-6 mx-auto mt-5 p-4">
-               <h1 style={{textAlign : "center"}}>Login</h1>
-            <form>
-  
-              {this.renderEmail()}
-  
-              {this.renderPassword()}
-  
-              <div className="form-check">
-                <input className="form-check-input" type="checkbox" value="" id="checkbox"></input>
-                <label className="form-check-label mb-3" htmlFor="checkbox">Remember me</label>
+              <div className="row col-6 mx-auto mt-5 p-4">
+                    <h1 style={{textAlign : "center"}}>Login</h1>
+                  <form>
+        
+                    {this.renderEmail()}
+        
+                    {this.renderPassword()}
+        
+                    <div className="form-check">
+                      <input className="form-check-input" type="checkbox" value="" id="checkbox"></input>
+                      <label className="form-check-label mb-3" htmlFor="checkbox">Remember me</label>
+                    </div>
+        
+                    <button type="submit" className="btn btn-primary" onClick={this.submitForm}>Submit</button>
+        
+                  </form>
               </div>
-  
-              <button type="submit" className="btn btn-primary" onClick={this.submitForm}>Submit</button>
-  
-            </form>
-        </div>
             </>)
             :
-             (<ConfirmationPage/> )
+             (<ConfirmationPage password={this.state.password} emailInput={this.state.emailInput}/> )
           }
-         
-
       </div>
     )
   }
