@@ -39,3 +39,11 @@
     align-items: center;
     height: 51vh;
 }
+
+.error {
+    font-size: 1.7em;
+    text-align: center;
+    background-color: rgba(170, 16, 16, 0.685);
+    color: white;
+    /* display: block; */
+}
